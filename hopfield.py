@@ -52,6 +52,14 @@ def imprimir_patron(patron, filas, columnas):
         print(linea)
     print()
 
+def log2(n):
+    contador = 0
+    valor = n
+    while valor > 1:
+        valor = valor / 2
+        contador += 1
+    return contador
+
 
 def main():
     p1 = leer_patron('Datasets/i.txt')
@@ -67,6 +75,17 @@ def main():
 
 
     patrones = [p1, p2, p3, p4]
+
+    #Calcular capacidad
+    N = len(p1)  # número de neuronas
+    p_formula1 = 0.15 * N
+    p_formula2 = N / (2 * log2(N))
+
+    print("Número de neuronas (N):", N)
+    print("Capacidad estimada (p ≈ 0.15N):", round(p_formula1, 2))
+    print("Capacidad estimada (p ≈ N / (2log₂N)):", round(p_formula2, 2))
+    
+
 
     # Matriz de pesos
     W = crear_matriz_pesos(patrones)
